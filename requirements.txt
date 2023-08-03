@@ -1,2 +1,2 @@
-pdfkit==1.0.0
+pdfkit
 streamlit
