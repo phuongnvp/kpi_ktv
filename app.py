@@ -164,7 +164,7 @@ def main():
     box14_value = st.text_input('Số lần vắng mặt không được sự đồng ý của Trưởng/Phụ trách Khoa:')
 
     # First-level header
-    st.markdown("<h1 style='color: yellow; font-size: 24px;'>5. Thực hiện công việc khác Trường giao</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='color: red; font-size: 24px;'>5. Thực hiện công việc khác Trường giao</h1>", unsafe_allow_html=True)
 
     box15_option = st.selectbox('Thực hiện công việc khác Trường giao', ['Thực hiện đầy đủ', 'Có 01 lần để xảy ra lỗi đến mức bị ghi thành Biên bản', 'Có 02 lần trở lên để xảy ra lỗi đến mức bị ghi thành Biên bản'])
 
