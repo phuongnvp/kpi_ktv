@@ -1,4 +1,6 @@
 import streamlit as st
+import pdfkit
+import os
 
 def calculate_points(box1_value, box2_value, box3_value, box4_value, box5_value, box6_value, box7_value, box8_option, box9_option, box10_value, box11_value, box12_value, box13_option, box14_value, box15_option, box16_value, box17_value, box18_value, box19_value):
     plus1 = 0
@@ -122,10 +124,10 @@ def main():
     box23_value = st.text_input('Số ngày điều động hỗ trợ các phòng chức năng')
     if st.button('Tính giờ phục vụ thực tập'):
         try:
-            box20_value = int(box20_value)
-            box21_value = int(box21_value)
-            box22_value = int(box22_value)
-            box23_value = int(box23_value)
+            box20_value = float(box20_value)
+            box21_value = float(box21_value)
+            box22_value = float(box22_value)
+            box23_value = float(box23_value)
             
             TT_point = (box20_value + 3 * box23_value) * box21_value + 8 * box22_value
             st.session_state.box1_value = TT_point
@@ -167,28 +169,28 @@ def main():
     
     if st.button('Tính giờ hỗ trợ hoạt động khác'):
         try:
-            box24_value = int(box24_value)
-            box25_value = int(box25_value)
-            box26_value = int(box26_value)
-            box27_value = int(box27_value)
-            box28_value = int(box28_value)
-            box31_value = int(box31_value)
-            box32_value = int(box32_value)
-            box33_value = int(box33_value)
-            box34_value = int(box34_value)
-            box35_value = int(box35_value)
-            box36_value = int(box36_value)
-            box37_value = int(box37_value)
-            box38_value = int(box38_value)
-            box39_value = int(box39_value)
-            box40_value = int(box40_value)
-            box41_value = int(box41_value)
-            box42_value = int(box42_value)
-            box43_value = int(box43_value)
-            box44_value = int(box44_value)
-            box45_value = int(box45_value)
-            box46_value = int(box46_value)
-            box47_value = int(box47_value)
+            box24_value = float(box24_value)
+            box25_value = float(box25_value)
+            box26_value = float(box26_value)
+            box27_value = float(box27_value)
+            box28_value = float(box28_value)
+            box31_value = float(box31_value)
+            box32_value = float(box32_value)
+            box33_value = float(box33_value)
+            box34_value = float(box34_value)
+            box35_value = float(box35_value)
+            box36_value = float(box36_value)
+            box37_value = float(box37_value)
+            box38_value = float(box38_value)
+            box39_value = float(box39_value)
+            box40_value = float(box40_value)
+            box41_value = float(box41_value)
+            box42_value = float(box42_value)
+            box43_value = float(box43_value)
+            box44_value = float(box44_value)
+            box45_value = float(box45_value)
+            box46_value = float(box46_value)
+            box47_value = float(box47_value)
             
             if box29_option == 'Có':
                 box29_value = 4
@@ -272,23 +274,24 @@ def main():
     
     if st.button('Calculate'):
         try:
-            box1_value = int(box1_value)
-            box2_value = int(box2_value)
-            box3_value = int(box3_value)
-            box4_value = int(box4_value)
-            box5_value = int(box5_value)
-            box6_value = int(box6_value)
-            box7_value = int(box7_value)
-            box10_value = int(box10_value)
-            box11_value = int(box11_value)
-            box12_value = int(box12_value)
-            box14_value = int(box14_value)
-            box16_value = int(box16_value)
-            box17_value = int(box17_value)
-            box18_value = int(box18_value)
-            box19_value = int(box19_value)
+            box1_value = float(box1_value)
+            box2_value = float(box2_value)
+            box3_value = float(box3_value)
+            box4_value = float(box4_value)
+            box5_value = float(box5_value)
+            box6_value = float(box6_value)
+            box7_value = float(box7_value)
+            box10_value = float(box10_value)
+            box11_value = float(box11_value)
+            box12_value = float(box12_value)
+            box14_value = float(box14_value)
+            box16_value = float(box16_value)
+            box17_value = float(box17_value)
+            box18_value = float(box18_value)
+            box19_value = float(box19_value)
             
-            total_points = calculate_points(box1_value, box2_value, box3_value, box4_value, box5_value, box6_value, box7_value, box8_option, box9_option, box10_value, box11_value, box12_value, box13_option, box14_value, box15_option, box16_value, box17_value, box18_value, box19_value)
+            total_point = calculate_points(box1_value, box2_value, box3_value, box4_value, box5_value, box6_value, box7_value, box8_option, box9_option, box10_value, box11_value, box12_value, box13_option, box14_value, box15_option, box16_value, box17_value, box18_value, box19_value)
+            total_points = round(total_point, 2)
             st.write(f'Tổng điểm KPI: {total_points}')
             if total_points >= 105:
                 st.write('Hoàn thành xuất sắc nhiệm vụ')
@@ -300,6 +303,18 @@ def main():
                 st.write('Không hoàn thành nhiệm vụ')
         except ValueError:
             st.error('Vui lòng kiểm tra và nhập lại thông tin.')
+
+    
+    # Add a button to generate the PDF
+    if st.button("Generate PDF"):
+        # Specify the file path to save the PDF
+        pdfkit.from_url('https://kpi-ktv.streamlit.app/', 'KPI.pdf')
+        st.success("PDF generated!")
+
+    if os.path.exists('KPI.pdf'):
+        with open('KPI.pdf', 'rb') as f:
+            pdf_data = f.read()
+        st.download_button("Download PDF", data=pdf_data, file_name='KPI.pdf', mime='application/pdf')
 
 if __name__ == '__main__':
     main()
