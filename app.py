@@ -113,14 +113,108 @@ def calculate_points(box1_value, box2_value, box3_value, box4_value, box5_value,
 
 def main():
     st.title('Kết quả tự đánh giá KPI Kỹ thuật viên')
+    
+    st.markdown("<h1 style='color: violet; font-size: 28px;'>Phần 1. Quy đổi giờ các hình thức hoạt động</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='color: red; font-size: 24px;'>1. Quy đổi giờ phục vụ thực tập</h1>", unsafe_allow_html=True)    
+    box20_value = st.text_input('Số tổ thực tập:')
+    box21_value = st.text_input('Số bài thực tập')
+    box22_value = st.text_input('Số ngày chuẩn bị thực tập')
+    box23_value = st.text_input('Số ngày điều động hỗ trợ các phòng chức năng')
+    if st.button('Tính giờ phục vụ thực tập'):
+        try:
+            box20_value = int(box20_value)
+            box21_value = int(box21_value)
+            box22_value = int(box22_value)
+            box23_value = int(box23_value)
+            
+            TT_point = (box20_value + 3 * box23_value) * box21_value + 8 * box22_value
+            st.session_state.box1_value = TT_point
+            st.write(f'Tổng giờ phục vụ thực tập: {TT_point}')
+        except ValueError:
+            st.error('Vui lòng kiểm tra và nhập lại thông tin.')
 
+    st.markdown("<h1 style='color: red; font-size: 24px;'>2. Quy đổi giờ đối với các hình thức hoạt động khác</h1>", unsafe_allow_html=True)    
+   
+    st.markdown("<h2 style='font-size: 20px;'>2.1. Công tác hành chính</h2>", unsafe_allow_html=True)
+    box33_value = st.text_input('Thư ký các buổi họp giao ban khoa (số buổi)')
+    box34_value = st.text_input('Tập hợp thông tin và soạn thảo văn bản để báo cáo, trả lời công văn Nhà trường (số trang)')
+    box35_value = st.text_input('Tiếp nhận và bàn giao công văn trong Trường (số công văn)')
+    box36_value = st.text_input('Tiếp nhận và bàn giao công văn ngoài Trường (số công văn)')
+    box37_value = st.text_input('Quản lý văn phòng phẩm (số tháng)')
+    box38_value = st.text_input('Phục vụ hậu cần Khoa (số tháng)')
+    box39_value = st.text_input('Hỗ trợ nhập điểm thành phần với lớp 60 sinh viên (số đầu điểm)')
+    box40_value = st.text_input('Hỗ trợ nhập điểm thành phần với lớp 170-200 sinh viên (số đầu điểm)')
+    box41_value = st.text_input('Hỗ trợ nhập thời khóa biểu trên phần mềm, phân công lịch thực tập cho KTV (số lớp)')
+    box42_value = st.text_input('Hỗ trợ nhập thông tin và kiểm tra thông tin trên phần mềm đánh giá năng lực giảng viên, KTV (số buổi). Tối đa 2 buổi/kỳ x 2 kỳ/năm')
+    box43_value = st.text_input('Hỗ trợ quản lý công văn giấy tờ Bộ môn (số tháng)')
+    box44_value = st.text_input('Hỗ trợ quản lý công văn của Khoa (số tháng)')
+    box45_value = st.text_input('Hỗ trợ Khoa trong công tác tài chính (số tháng)')
+    box46_value = st.text_input('Hỗ trợ Khoa chấm công (số tháng)')
+    box47_value = st.text_input('Hỗ trợ theo dõi, gửi, thông báo các văn bản, tin tức liên quan trong nội bộ Khoa (số tuần)')
+
+    st.markdown("<h2 style='font-size: 20px;'>2.1. Công tác giáo tài</h2>", unsafe_allow_html=True)
+    box28_value = st.text_input('Phối hợp Giáo tài hoàn thành Dự trù TTB, hóa chất phục vụ cho bài thực tập. Số giờ dự trù hóa chất, dụng cụ phục vụ cho 1 bài thực tập (số bài thực tập)')
+    box29_option = st.selectbox('Tiếp nhận hóa chất, dụng cụ cho bài thực tập cùng giáo tài', ['Có', 'Không'])
+    box30_option = st.selectbox('Hỗ trợ giáo tài lưu trữ, kiểm kê, định kỳ bảo quản hóa chất, dụng cụ, vật tư tiêu hao phục vụ thực tập và nghiên cứu', ['Có', 'Không'])
+    box31_value = st.text_input('Kiểm tra nhật ký sử dụng thiết bị (số thiết bị/năm)')
+    box32_value = st.text_input('Chuẩn bị dụng cụ hóa chất để giảng viên phụ trách thiết bị vận hành kiểm tra định kỳ (số học kỳ)')
+
+    st.markdown("<h2 style='font-size: 20px;'>2.1. Công tác NCKH</h2>", unsafe_allow_html=True)
+    box24_value = st.text_input('Thực hiện các hoạt động thực nghiệm phục vụ các đề tài NCKH tùy theo thỏa thuận với chủ trì đề tài (số buổi):')
+    box25_value = st.text_input('Theo dõi việc sử dụng và ghi nhật ký sử dụng thiết bị, nhật ký PTN (số buổi):')
+    box26_value = st.text_input('Giám sát học viên, NCV của đơn vị khác (số buổi):')
+    box27_value = st.text_input('Kiểm tra tình trạng PTN sau khi nhóm nghiên cứu hoàn thành công việc trong ngày (số buổi):')
+    
+    if st.button('Tính giờ hỗ trợ hoạt động khác'):
+        try:
+            box24_value = int(box24_value)
+            box25_value = int(box25_value)
+            box26_value = int(box26_value)
+            box27_value = int(box27_value)
+            box28_value = int(box28_value)
+            box31_value = int(box31_value)
+            box32_value = int(box32_value)
+            box33_value = int(box33_value)
+            box34_value = int(box34_value)
+            box35_value = int(box35_value)
+            box36_value = int(box36_value)
+            box37_value = int(box37_value)
+            box38_value = int(box38_value)
+            box39_value = int(box39_value)
+            box40_value = int(box40_value)
+            box41_value = int(box41_value)
+            box42_value = int(box42_value)
+            box43_value = int(box43_value)
+            box44_value = int(box44_value)
+            box45_value = int(box45_value)
+            box46_value = int(box46_value)
+            box47_value = int(box47_value)
+            
+            if box29_option == 'Có':
+                box29_value = 4
+            else:
+                box29_value = 0
+
+            if box30_option == 'Có':
+                box30_value = 80
+            else:
+                box30_value = 0
+
+            HC_point = 4 * (box24_value + box25_value + box26_value + box27_value) + box28_value + box29_value + box30_value + 6*box31_value + 4*box32_value + box33_value + 4*(box34_value+box37_value+box38_value+box42_value+box43_value+box44_value+box45_value+box46_value+box47_value) + 0.5*box35_value + 2*box36_value + box39_value + 3*box40_value + 2*box41_value
+            st.session_state.box10_value = HC_point
+            st.write(f'Tổng giờ hỗ trợ công tác giáo tài, giáo vụ, hành chính, NCKH: {HC_point}')
+        except ValueError:
+            st.error('Vui lòng kiểm tra và nhập lại thông tin.')
+
+
+    st.markdown("<h1 style='color: violet; font-size: 28px;'>Phần 2. Tự đánh giá KPI</h1>", unsafe_allow_html=True)
     # First-level header
     st.markdown("<h1 style='color: red; font-size: 24px;'>1. Công tác chuẩn bị và phục vụ thực tập</h1>", unsafe_allow_html=True)
 
     # Second-level header
     st.markdown("<h2 style='font-size: 20px;'>1.1. Hoàn thành định mức giờ phục vụ thực tập</h2>", unsafe_allow_html=True)
 
-    box1_value = st.text_input('Số buổi phục vụ thực tập (Định mức 274 buổi):')
+    box1_value = st.text_input('Số buổi phục vụ thực tập (Định mức 274 buổi):', value=st.session_state.get('box1_value', ''))
     
     # Second-level header
     st.markdown("<h2 style='font-size: 20px;'>1.2. Chất lượng hoạt động phục vụ thực tập</h2>", unsafe_allow_html=True)
@@ -146,7 +240,7 @@ def main():
     st.markdown("<h1 style='color: red; font-size: 24px;'>2. Thực hiện công việc hỗ trợ công tác giáo tài, giáo vụ, hành chính Khoa và thực hiện công việc phục vụ PTN cho NCKH</h1>", unsafe_allow_html=True)
 
     # Option for Box 10
-    box10_value = st.text_input('Số giờ thực hiện (Định mức 408 giờ):')
+    box10_value = st.text_input('Số giờ thực hiện (Định mức 408 giờ):', value=st.session_state.get('box10_value', ''))
     
     # First-level header
     st.markdown("<h1 style='color: red; font-size: 24px;'>3. Công tác coi thi</h1>", unsafe_allow_html=True)
