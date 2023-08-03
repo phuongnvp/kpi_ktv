@@ -115,7 +115,7 @@ def main():
     st.title('Kết quả tự đánh giá KPI Kỹ thuật viên')
 
     # First-level header
-    st.markdown("<h1 style='color: yellow; font-size: 24px;'>1. Công tác chuẩn bị và phục vụ thực tập</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='color: red; font-size: 24px;'>1. Công tác chuẩn bị và phục vụ thực tập</h1>", unsafe_allow_html=True)
 
     # Second-level header
     st.markdown("<h2 style='font-size: 20px;'>1.1. Hoàn thành định mức giờ phục vụ thực tập</h2>", unsafe_allow_html=True)
@@ -143,20 +143,20 @@ def main():
 
     
     # First-level header
-    st.markdown("<h1 style='color: yellow; font-size: 24px;'>2. Thực hiện công việc hỗ trợ công tác giáo tài, giáo vụ, hành chính Khoa và thực hiện công việc phục vụ PTN cho NCKH</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='color: red; font-size: 24px;'>2. Thực hiện công việc hỗ trợ công tác giáo tài, giáo vụ, hành chính Khoa và thực hiện công việc phục vụ PTN cho NCKH</h1>", unsafe_allow_html=True)
 
     # Option for Box 10
     box10_value = st.text_input('Số giờ thực hiện (Định mức 408 giờ):')
     
     # First-level header
-    st.markdown("<h1 style='color: yellow; font-size: 24px;'>3. Công tác coi thi</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='color: red; font-size: 24px;'>3. Công tác coi thi</h1>", unsafe_allow_html=True)
 
     box11_value = st.text_input('Số lần vi phạm nghiệp vụ coi thi:')
 
     box12_value = st.text_input('Số lần quên coi thi bị ghi nhận trong thông báo kết quả thanh tra thi của Phòng ĐBCL và Khảo thí:')
 
    # First-level header
-    st.markdown("<h1 style='color: yellow; font-size: 24px;'>4. Thực hiện công việc chung (họp, tập huấn...)</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='color: red; font-size: 24px;'>4. Thực hiện công việc chung (họp, tập huấn...)</h1>", unsafe_allow_html=True)
 
     # Option for Box 13
     box13_option = st.selectbox('Tham gia công việc chung', ['Tích cực đóng góp ý kiến, góp ý văn bản', 'Chưa tích cực đóng góp ý kiến, góp ý văn bản'])
@@ -169,7 +169,7 @@ def main():
     box15_option = st.selectbox('Thực hiện công việc khác Trường giao', ['Thực hiện đầy đủ', 'Có 01 lần để xảy ra lỗi đến mức bị ghi thành Biên bản', 'Có 02 lần trở lên để xảy ra lỗi đến mức bị ghi thành Biên bản'])
 
     # First-level header
-    st.markdown("<h1 style='color: yellow; font-size: 24px;'>6. Điểm thưởng</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='color: red; font-size: 24px;'>6. Điểm thưởng</h1>", unsafe_allow_html=True)
     st.write('_Vui lòng nhập số điểm tự đánh giá tương ứng!_')
     box16_value = st.text_input('Tham gia công tác quảng bá tuyển sinh, hội chợ tuyển sinh của Trường ĐH Dược Hà Nội (Tối đa 1 điểm):')
     box17_value = st.text_input('Có sáng kiến trong công việc đem lại hiệu quả được công nhận (Tối đa 5 điểm):')
