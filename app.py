@@ -2,14 +2,6 @@ import streamlit as st
 import pdfkit
 import os
 
-options = {
-    'quiet': '',
-    'no-outline': None,
-    'disable-smart-shrinking': None,
-    'disable-local-file-access': None,
-    'no-http2': None  # Add this option
-}
-
 def calculate_points(box1_value, box2_value, box3_value, box4_value, box5_value, box6_value, box7_value, box8_option, box9_option, box10_value, box11_value, box12_value, box13_option, box14_value, box15_option, box16_value, box17_value, box18_value, box19_value):
     plus1 = 0
     plus2 = 0
@@ -316,7 +308,7 @@ def main():
     # Add a button to generate the PDF
     if st.button("Generate PDF"):
         # Specify the file path to save the PDF
-        pdfkit.from_url('https://kpi-ktv.streamlit.app/', 'KPI.pdf', options = options)
+        pdfkit.from_url('https://kpi-ktv.streamlit.app/', 'KPI.pdf')
         st.success("PDF generated!")
 
     if os.path.exists('KPI.pdf'):
