@@ -153,14 +153,14 @@ def main():
     box46_value = st.text_input('Hỗ trợ Khoa chấm công (số tháng)')
     box47_value = st.text_input('Hỗ trợ theo dõi, gửi, thông báo các văn bản, tin tức liên quan trong nội bộ Khoa (số tuần)')
 
-    st.markdown("<h2 style='font-size: 20px;'>2.1. Công tác giáo tài</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='font-size: 20px;'>2.2. Công tác giáo tài</h2>", unsafe_allow_html=True)
     box28_value = st.text_input('Phối hợp Giáo tài hoàn thành Dự trù TTB, hóa chất phục vụ cho bài thực tập. Số giờ dự trù hóa chất, dụng cụ phục vụ cho 1 bài thực tập (số bài thực tập)')
     box29_option = st.selectbox('Tiếp nhận hóa chất, dụng cụ cho bài thực tập cùng giáo tài', ['Có', 'Không'])
     box30_option = st.selectbox('Hỗ trợ giáo tài lưu trữ, kiểm kê, định kỳ bảo quản hóa chất, dụng cụ, vật tư tiêu hao phục vụ thực tập và nghiên cứu', ['Có', 'Không'])
     box31_value = st.text_input('Kiểm tra nhật ký sử dụng thiết bị (số thiết bị/năm)')
     box32_value = st.text_input('Chuẩn bị dụng cụ hóa chất để giảng viên phụ trách thiết bị vận hành kiểm tra định kỳ (số học kỳ)')
 
-    st.markdown("<h2 style='font-size: 20px;'>2.1. Công tác NCKH</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='font-size: 20px;'>2.3. Công tác NCKH</h2>", unsafe_allow_html=True)
     box24_value = st.text_input('Thực hiện các hoạt động thực nghiệm phục vụ các đề tài NCKH tùy theo thỏa thuận với chủ trì đề tài (số buổi):')
     box25_value = st.text_input('Theo dõi việc sử dụng và ghi nhật ký sử dụng thiết bị, nhật ký PTN (số buổi):')
     box26_value = st.text_input('Giám sát học viên, NCV của đơn vị khác (số buổi):')
