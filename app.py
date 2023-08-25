@@ -1,5 +1,4 @@
 import streamlit as st
-import pdfkit
 import os
 
 def calculate_points(box1_value, box2_value, box3_value, box4_value, box5_value, box6_value, box7_value, box8_option, box9_option, box10_value, box11_value, box12_value, box13_option, box14_value, box15_option, box16_value, box17_value, box18_value, box19_value):
