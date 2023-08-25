@@ -303,18 +303,6 @@ def main():
                 st.write('Không hoàn thành nhiệm vụ')
         except ValueError:
             st.error('Vui lòng kiểm tra và nhập lại thông tin.')
-
-    
-    # Add a button to generate the PDF
-    if st.button("Generate PDF"):
-        # Specify the file path to save the PDF
-        pdfkit.from_url('https://kpi-ktv.streamlit.app/', 'KPI.pdf')
-        st.success("PDF generated!")
-
-    if os.path.exists('KPI.pdf'):
-        with open('KPI.pdf', 'rb') as f:
-            pdf_data = f.read()
-        st.download_button("Download PDF", data=pdf_data, file_name='KPI.pdf', mime='application/pdf')
-
+            
 if __name__ == '__main__':
     main()
